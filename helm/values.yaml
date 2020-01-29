@@ -21,9 +21,9 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 9495
+  port: 9442
   internalport: 8080
-  externalport: 9495
+  externalport: 9442
 
 ingress:
   enabled: true
