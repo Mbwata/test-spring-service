@@ -20,6 +20,3 @@ spec:
           httpGet:
             path: /
             port: {{ .Values.service.internalport }}
-  strategy:
-    type: RollingUpdate
-    rollingUp      maxSurge: 50%
