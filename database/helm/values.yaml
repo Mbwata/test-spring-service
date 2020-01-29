@@ -12,8 +12,8 @@ replicas:
   targetCpuPercent: 50
 
 image:
-  repository: store/oracle/database-enterprise
-  tag: 12.2.0.1
+  repository: housems/mhoracle
+  tag: latest
   pullPolicy: Always
 
 nameOverride: ""
