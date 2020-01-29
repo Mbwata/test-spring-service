@@ -16,7 +16,3 @@ spec:
         name: claimnumber
         ports:
         - containerPort: {{ .Values.service.internalport }}
-        readinessProbe:
-          httpGet:
-            path: /
-            port: {{ .Values.service.internalport }}
