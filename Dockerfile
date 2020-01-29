@@ -9,8 +9,6 @@ RUN mvn -f /home/app/pom.xml clean install
 #
 # Package stage
 #
-FROM tomcat:9.0
+FROM tomcat:8.5
 
-COPY tomcat_image/tomcat-users.xml /usr/local/tomcat/conf
-
-COPY --from=build /home/app/target/spring-boot.war /usr/local/tomcat/webapps/
+COPY --from=build /home/app/target/claimnumber.war /usr/local/tomcat/webapps/
