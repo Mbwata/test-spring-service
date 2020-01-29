@@ -12,7 +12,7 @@ replicas:
   targetCpuPercent: 50
 
 image:
-  repository: housems/mhoracle
+  repository: postgres
   tag: latest
   pullPolicy: Always
 
@@ -21,9 +21,9 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 1621
-  internalport: 1521
-  externalport: 1621
+  port: 5432
+  internalport: 5432
+  externalport: 5432
 
 ingress:
   enabled: true

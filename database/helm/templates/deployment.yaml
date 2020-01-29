@@ -17,7 +17,7 @@ spec:
         ports:
         - containerPort: {{ .Values.service.internalport }}
         volumeMounts:
-         - mountPath: /u01/app/oracle
+         - mountPath: /var/lib/postgresql/data
            name: claim-db-dev
       volumes:
         - name: claim-db-dev
