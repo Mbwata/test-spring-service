@@ -21,9 +21,9 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 5432
-  internalport: 5432
-  externalport: 5432
+  port: 1621
+  internalport: 1521
+  externalport: 1621
 
 ingress:
   enabled: true
