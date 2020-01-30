@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 metadata:
-  namespace: claim-dev
+  namespace: claim-test
 
 replicas:
   replicaCount: 1
@@ -36,8 +36,7 @@ ingress:
   
 mounts:
   name: claim-db-test
-  path: /Users/matthouse/docker/claimservice/dev
-  env: test
+  path: /Users/matthouse/docker/claimservice/test
 
 
 
