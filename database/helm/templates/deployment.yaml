@@ -29,5 +29,5 @@ spec:
       volumes:
         - name: {{ .Values.mounts.name }}
           hostPath:
-            path: "/Users/matthouse/docker/claimservice/"{{ .Values.mounts.path }}
+            path: "/Users/matthouse/docker/claimservice/"{{ .Values.mounts.env }}
             type: DirectoryOrCreate
