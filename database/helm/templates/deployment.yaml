@@ -25,9 +25,9 @@ spec:
             value: passord        
         volumeMounts:
          - mountPath: "/var/lib/postgresql/data"
-           name: claim-db-dev
+           name: {{ .Values.mounts.name }}
       volumes:
-        - name: claim-db-dev
+        - name: {{ .Values.mounts.name }}
           hostPath:
-            path: {{ .Values.mounts.path }}
+            path: "/Users/matthouse/docker/claimservice/"{{ .Values.mounts.path }}
             type: DirectoryOrCreate

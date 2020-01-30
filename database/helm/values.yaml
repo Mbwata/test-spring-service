@@ -35,7 +35,9 @@ ingress:
     - localhost
   
 mounts:
+  name: claim-db-dev
   path: /Users/matthouse/docker/claimservice/dev
+  env: test
 
 
 
