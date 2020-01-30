@@ -16,8 +16,15 @@ spec:
         name: claim-db
         ports:
         - containerPort: {{ .Values.service.internalport }}
+        env:
+          - name: POSTGRES_DB
+            value: claimnumber
+          - name: POSTGRES_USER
+            value: user1
+          - name: POSTGRES_PASSWORD
+            value: passord        
         volumeMounts:
-         - mountPath: /var/lib/postgresql/data
+         - mountPath: "/var/lib/postgresql/data"
            name: claim-db-dev
       volumes:
         - name: claim-db-dev
