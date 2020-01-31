@@ -19,7 +19,7 @@ public class HelloController {
         String user = "user1";
         String password = "passord";
         String claimno = "poop";
-        
+        String query = "insert into claim_no_history (claim_no) values( ? )";
 //        Connection c = null;
 //      try {
 //         Class.forName("org.postgresql.Driver");
@@ -36,12 +36,12 @@ public class HelloController {
         
         
          try (Connection con = DriverManager.getConnection(url, user, password);
-                PreparedStatement pst = con.prepareStatement("select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date");
-                ResultSet rs = pst.executeQuery()) {
+                PreparedStatement pst1 = con.prepareStatement("select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date");
+                ResultSet rs1 = pst1.executeQuery()) {
 
-            if (rs.next()) {
-                System.out.println(rs.getString(1));
-                claimno = rs.getString(1);
+            if (rs1.next()) {
+                System.out.println(rs1.getString(1));
+                claimno = rs1.getString(1);
             }
 
         } catch (SQLException ex) {
@@ -51,6 +51,19 @@ public class HelloController {
             claimno = "crap";
         }
      
+         try (Connection con = DriverManager.getConnection(url, user, password);
+             PreparedStatement pst2 = con.prepareStatement(query)) {
+            
+            
+            pst2.setString(1, claimno);
+            pst2.executeUpdate();
+
+        } catch (SQLException ex) {
+
+            Logger lgr = Logger.getLogger(HelloController.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+        }
+         
      return claimno;
     }
     
