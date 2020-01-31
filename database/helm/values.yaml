@@ -23,7 +23,7 @@ service:
   type: ClusterIP
   port: 5432
   internalport: 5432
-  externalport: 5432
+  externalport: 5532
 
 ingress:
   enabled: true

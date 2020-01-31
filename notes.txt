@@ -1,0 +1,9 @@
+select * from claim_no_history;
+
+select count(*)+1 from claim_no_history where create_date > current_date;
+
+select translate (cast(current_date as varchar),'-','');
+
+select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date
+
+insert into claim_no_history (claim_no) select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date
