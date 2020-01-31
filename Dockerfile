@@ -11,6 +11,7 @@ RUN mvn -f /home/app/pom.xml clean install
 #
 FROM tomcat:8.5
 
+COPY postgresql-42.2.9.jar /usr/local/tomcat/lib
 COPY tomcat_image/tomcat-users.xml /usr/local/tomcat/conf
 
 COPY --from=build /home/app/target/claimnumber.war /usr/local/tomcat/webapps/
