@@ -64,6 +64,18 @@ public class HelloController {
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
         }
          
+         
+         try (Connection con = DriverManager.getConnection(url, user, password);
+             PreparedStatement pst3 = con.prepareStatement("delete from claim_no_history where claim_no = 'crap'")) {
+            
+            pst3.executeUpdate();
+
+        } catch (SQLException ex) {
+
+            Logger lgr = Logger.getLogger(HelloController.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+        }         
+         
      return claimno;
     }
     
