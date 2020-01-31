@@ -15,7 +15,7 @@ public class HelloController {
 
     public static String getClaimNo(){
         
-        String url = "jdbc:postgresql://localhost:5432/claimnumber";
+        String url = "jdbc:postgresql://claim-db.claim-dev:5432/claimnumber";
         String user = "user1";
         String password = "passord";
         String claimno = "poop";
@@ -48,6 +48,7 @@ public class HelloController {
 
             Logger lgr = Logger.getLogger(HelloController.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
+            claimno = "crap";
         }
      
      return claimno;
