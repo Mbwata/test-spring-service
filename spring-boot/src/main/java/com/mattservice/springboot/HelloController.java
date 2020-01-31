@@ -36,7 +36,7 @@ public class HelloController {
         
         
          try (Connection con = DriverManager.getConnection(url, user, password);
-                PreparedStatement pst = con.prepareStatement("SELECT VERSION()");
+                PreparedStatement pst = con.prepareStatement("select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date");
                 ResultSet rs = pst.executeQuery()) {
 
             if (rs.next()) {
