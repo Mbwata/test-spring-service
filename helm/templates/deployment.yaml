@@ -20,8 +20,8 @@ spec:
           httpGet:
             path: /
             port: {{ .Values.service.internalport }}
-          initialDelaySeconds: 20
-          periodSeconds: 20
+          initialDelaySeconds: 60
+          periodSeconds: 60
   strategy:
     type: RollingUpdate
     rollingUpdate:
