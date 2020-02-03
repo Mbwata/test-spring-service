@@ -18,10 +18,10 @@ spec:
         - containerPort: {{ .Values.service.internalport }}
         readinessProbe:
           httpGet:
-            path: /
+            path: /claimnumber/
             port: {{ .Values.service.internalport }}
-          initialDelaySeconds: 60
-          periodSeconds: 60
+          initialDelaySeconds: 20
+          periodSeconds: 20
   strategy:
     type: RollingUpdate
     rollingUpdate:
