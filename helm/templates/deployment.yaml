@@ -22,6 +22,7 @@ spec:
             port: {{ .Values.service.internalport }}
           initialDelaySeconds: 60
           periodSeconds: 60
+          failureThreshold: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
