@@ -6,8 +6,8 @@ metadata:
   namespace: default
 
 replicas:
-  replicaCount: 1
-  min: 1
+  replicaCount: 2
+  min: 2
   max: 4
   targetCpuPercent: 50
 

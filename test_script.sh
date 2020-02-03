@@ -1,4 +1,4 @@
-for i in {1..100}; do  curl localhost:9500/claimnumber/; done
+for i in {1..5}; do echo $(curl localhost:9500/claimnumber/); done
 
 
 
