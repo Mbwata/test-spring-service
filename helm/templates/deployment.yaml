@@ -20,8 +20,8 @@ spec:
           httpGet:
             path: /claimnumber/
             port: {{ .Values.service.internalport }}
-          initialDelaySeconds: 30
-          periodSeconds: 30
+          initialDelaySeconds: 15
+          periodSeconds: 15
           failureThreshold: 5
   strategy:
     type: RollingUpdate
