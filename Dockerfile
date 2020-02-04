@@ -1,6 +1,7 @@
 #
 # Build stage
 #
+#FROM claimbuild:latest AS build
 FROM maven:3.6.3-jdk-8 AS build
 COPY spring-boot/src /home/app/src
 COPY spring-boot/pom.xml /home/app

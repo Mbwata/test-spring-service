@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#docker build -t claimbuild:latest -f Dockerfile_build_image .
+
 docker rm -f mattcattest
 docker rmi cattest
 docker build -t cattest:latest .
