@@ -1,1 +1,1 @@
-for i in {1..200}; do echo $(curl localhost:9500/claimnumber/) >> log.txt; done
+for i in {1..250}; do echo $(curl localhost:9500/claimnumber/) >> log.txt; done
