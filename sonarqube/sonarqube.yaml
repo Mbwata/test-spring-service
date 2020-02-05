@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sonarqube
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sonarqube
+    spec:
+      containers:
+      - image: sonarqube   
+        imagePullPolicy: Always
+        name: sonarqube
+        volumeMounts:
+         - mountPath: /opt/sonarqube/data 
+           name: sonardata
+         - mountPath: /opt/sonarqube/extensions/plugins/tmp
+           name: sonardata                   
+        ports:
+        - containerPort: 9000
+      volumes:
+        - name: sonardata
+          hostPath:
+            path: /Users/matthouse/docker/claimservice/sonarqube_data
+            type: DirectoryOrCreate    
+        - name: sonarplugins
+          hostPath:
+            path: /Users/matthouse/docker/claimservice/sonarqube_plugins
+            type: DirectoryOrCreate
