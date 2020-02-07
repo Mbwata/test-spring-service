@@ -59,7 +59,7 @@ public class HelloController {
 
             Logger lgr = Logger.getLogger(HelloController.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
-            claimno = "crap";
+            claimno = "crap1";
         }
      
          try (Connection con = DriverManager.getConnection(url, user, password);
