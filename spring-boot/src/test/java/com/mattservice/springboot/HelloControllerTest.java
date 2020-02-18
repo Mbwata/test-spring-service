@@ -47,17 +47,34 @@ public class HelloControllerTest {
     /**
      * Test of getClaimNo method, of class HelloController.
      */
-//    @Test
-//    public void testGetClaimNo() {
-//        System.out.println("getClaimNo");
-//        String prefix = "W";
-//        
-//        String expResult = "";
-//        String result = HelloController.getClaimNo();
-//        assertEquals(expResult, result);
+    @Test
+    public void testGetClaimNo() {
+        System.out.println("getClaimNo");
+        String url = "jdbc:postgresql://claim-db.claim-dev:5432/claimnumber";
+        String user = "user1";
+        String password = "passord";
+        String expResult = "fail";
+        try (Connection con = DriverManager.getConnection(url, user, password);
+                PreparedStatement pst1 = con.prepareStatement("select concat ('Z-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date");
+                ResultSet rs1 = pst1.executeQuery()) {
+
+            if (rs1.next()) {
+                System.out.println(rs1.getString(1));
+                expResult = rs1.getString(1);
+            }
+
+        } catch (SQLException ex) {
+
+            Logger lgr = Logger.getLogger(HelloController.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+            expResult = "sql Error";
+        }
+        
+        String result = HelloController.getClaimNo();
+        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
-//    }
+    }
 
     /**
      * Test of index method, of class HelloController.
