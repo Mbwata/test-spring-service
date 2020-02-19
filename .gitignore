@@ -2,3 +2,5 @@
 .DS_Store
 spring-boot/out/production/.mvn/maven-wrapper.jar
 notes.txt
+log.txt
+/spring-boot/nbproject/

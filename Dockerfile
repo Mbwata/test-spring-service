@@ -1,10 +1,20 @@
 #
 # Build stage
 #
+#FROM claimbuild:latest AS build
 FROM maven:3.6.3-jdk-8 AS build
-COPY spring-boot/src /home/app/src
+WORKDIR /home/app
 COPY spring-boot/pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean install
+RUN mvn dependency:go-offline
+COPY spring-boot/src /home/app/src
+RUN mvn package
+#RUN mvn -f /home/app/pom.xml clean install
+RUN mvn -f /home/app/ sonar:sonar \
+ -Dsonar.projectKey=claimno-service \
+ #-Dsonar.host.url=http://sonarqube-service:9442 \
+ #-Dsonar.host.url=http://sonarqube-service:9000 \ 
+ -Dsonar.host.url=http://10.105.189.117:9442 \ 
+ -Dsonar.login=084e51d5120719dc236b3af4e30b3f7de04b2a8d
 
 #
 # Package stage

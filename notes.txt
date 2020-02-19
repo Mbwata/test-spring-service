@@ -7,3 +7,15 @@ select translate (cast(current_date as varchar),'-','');
 select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date
 
 insert into claim_no_history (claim_no) select concat ('M-', cast(count(*)+1 as varchar),'-',translate (cast(current_date as varchar),'-','')) from claim_no_history where create_date > current_date
+
+insert into claim_no_history (claim_no) values('matt1');
+
+
+claimno-service
+
+
+
+mvn sonar:sonar \
+  -Dsonar.projectKey=claimno-service \
+  -Dsonar.host.url=http://localhost:9442 \
+  -Dsonar.login=084e51d5120719dc236b3af4e30b3f7de04b2a8d

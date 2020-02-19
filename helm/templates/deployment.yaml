@@ -16,3 +16,15 @@ spec:
         name: claimnumber
         ports:
         - containerPort: {{ .Values.service.internalport }}
+        readinessProbe:
+          httpGet:
+            path: /claimnumber/
+            port: {{ .Values.service.internalport }}
+          initialDelaySeconds: 20
+          periodSeconds: 20
+          failureThreshold: 7
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
