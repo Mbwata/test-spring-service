@@ -19,3 +19,22 @@ mvn sonar:sonar \
   -Dsonar.projectKey=claimno-service \
   -Dsonar.host.url=http://localhost:9442 \
   -Dsonar.login=084e51d5120719dc236b3af4e30b3f7de04b2a8d
+
+
+# unique project identifier (required)
+sonar.projectKey=my:claimno-service 
+
+# path to source directories (required)
+sonar.sources=srcDir1,srcDir2
+
+# path to test source directories (optional)
+sonar.tests=testDir1,testDir2
+
+# path to Java project compiled classes (optional)
+sonar.java.binaries=bin
+
+# comma-separated list of paths to libraries (optional)
+sonar.java.libraries=path/to/library.jar,path/to/classes/dir
+
+# Additional parameters
+sonar.my.property=value  
