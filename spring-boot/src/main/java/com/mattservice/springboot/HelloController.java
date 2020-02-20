@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import java.util.Properties;
 import java.io.FileInputStream; 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.InputStream;
 
 @RestController
@@ -20,9 +19,9 @@ public class HelloController {
 
     public static String getClaimNo(){
         
-        String url = "jdbc:postgresql://claim-db.claim-dev:5432/claimnumber";
-        String user = "user1";
-        String password = "passord";
+        String url = "";
+        String user = "";
+        String password = "";
         String claimno = "poop";
         String query = "insert into claim_no_history (claim_no) values( ? )";
 
@@ -68,7 +67,7 @@ public class HelloController {
 
             Logger lgr = Logger.getLogger(HelloController.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
-            claimno = "crap1";
+            claimno = url;
         }
      
          try (Connection con = DriverManager.getConnection(url, user, password);
