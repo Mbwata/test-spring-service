@@ -18,7 +18,7 @@ spec:
         - containerPort: {{ .Values.service.internalport }}
         readinessProbe:
           httpGet:
-            path: /claimnumber/
+            path: /claimnumber/healthcheck/
             port: {{ .Values.service.internalport }}
           initialDelaySeconds: 20
           periodSeconds: 20
