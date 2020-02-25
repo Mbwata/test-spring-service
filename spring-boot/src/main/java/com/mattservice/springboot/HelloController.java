@@ -9,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Properties;
+import java.io.FileInputStream; 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.InputStream;
 
 @RestController
 public class HelloController {
@@ -20,19 +25,23 @@ public class HelloController {
         String password = "passord";
         String claimno = "poop";
         String query = "insert into claim_no_history (claim_no) values( ? )";
-//        Connection c = null;
-//      try {
-//         Class.forName("org.postgresql.Driver");
-//         c = DriverManager
-//            .getConnection("jdbc:postgresql://localhost:5432/claimnumber",
-//            "user1", "passord");
-//      } catch (Exception e) {
-//         e.printStackTrace();
-//         System.err.println(e.getClass().getName()+": "+e.getMessage());
-//         System.exit(0);
-//      }
-//      System.out.println("Opened database successfully");
+
    
+        try (InputStream input = new FileInputStream("connection.properties")) {
+
+            Properties prop = new Properties();
+
+            // load a properties file
+            prop.load(input);
+
+            // get the property value
+            url = prop.getProperty("URL");
+            user = prop.getProperty("Uname");
+            password = prop.getProperty("password");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
   
          try (Connection con = DriverManager.getConnection(url, user, password);
              PreparedStatement pst3 = con.prepareStatement("delete from claim_no_history where claim_no = 'crap'")) {
@@ -59,7 +68,7 @@ public class HelloController {
 
             Logger lgr = Logger.getLogger(HelloController.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
-            claimno = "crap1";
+            claimno = url;
         }
      
          try (Connection con = DriverManager.getConnection(url, user, password);
