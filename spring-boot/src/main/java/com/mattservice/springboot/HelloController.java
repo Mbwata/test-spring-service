@@ -20,7 +20,8 @@ public class HelloController {
 
     public static String getClaimNo(){
         
-        String url = "jdbc:postgresql://claim-db:5432/claimnumber";
+        //String url = "jdbc:postgresql://claim-db:5432/claimnumber";
+        String url = "jdbc:postgresql://10.109.153.4:5432/claimnumber";
         String user = "user1";
         String password = "passord";
         String claimno = "poop";
@@ -99,4 +100,11 @@ public class HelloController {
         return claimno;
     }
 
+    @RequestMapping("/healthcheck")
+    public String healthcheck() {
+
+        
+        return "Oh Hello";
+    }
+    
 }
