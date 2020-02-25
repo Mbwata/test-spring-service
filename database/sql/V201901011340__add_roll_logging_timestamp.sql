@@ -1,2 +1,0 @@
-ALTER TABLE roll_history
-ADD COLUMN roll_time TIMESTAMP DEFAULT NOW();
