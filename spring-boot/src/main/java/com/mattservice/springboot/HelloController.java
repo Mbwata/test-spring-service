@@ -21,7 +21,7 @@ public class HelloController {
     public static String getClaimNo(){
         
         //String url = "jdbc:postgresql://claim-db:5432/claimnumber";
-        String url;
+        String url = "";
         String user = "user1";
         String password = "passord";
         String claimno = "poop";
