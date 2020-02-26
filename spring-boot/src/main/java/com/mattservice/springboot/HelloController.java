@@ -20,15 +20,17 @@ public class HelloController {
 
     public static String getClaimNo(){
         
-        String url = "jdbc:postgresql://claim-db:5432/claimnumber";
-        //String url = "jdbc:postgresql://10.109.153.4:5432/claimnumber";
+        //String url = "jdbc:postgresql://claim-db:5432/claimnumber";
+        String url;
         String user = "user1";
         String password = "passord";
         String claimno = "poop";
         String query = "insert into claim_no_history (claim_no) values( ? )";
 
+        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+        String dbConfigPath = rootPath + "connection.properties";
    
-        try (InputStream input = new FileInputStream("connection.properties")) {
+        try (InputStream input = new FileInputStream(dbConfigPath)) {
 
             Properties prop = new Properties();
 
