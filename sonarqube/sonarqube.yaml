@@ -24,9 +24,9 @@ spec:
       volumes:
         - name: sonardata
           hostPath:
-            path: /Users/matthouse/docker/claimservice/sonarqube_data
+            path: /Users/matthouse/docker/volumes/sonar4kubes/sonarqube_data
             type: DirectoryOrCreate    
         - name: sonarplugins
           hostPath:
-            path: /Users/matthouse/docker/claimservice/sonarqube_plugins
+            path: /Users/matthouse/docker/volumes/sonar4kubessonarqube_plugins
             type: DirectoryOrCreate
