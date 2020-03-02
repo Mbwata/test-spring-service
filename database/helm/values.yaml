@@ -21,9 +21,9 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 5532
+  port: 5432
   internalport: 5432
-  externalport: 5532
+  externalport: 5432
 
 ingress:
   enabled: true
@@ -36,7 +36,7 @@ ingress:
   
 mounts:
   name: claim-db-dev
-  path: /Users/matthouse/docker/claimservice/dev
+  path: /Users/matthouse/docker/volumes/claim_service_db/dev
 
 
 

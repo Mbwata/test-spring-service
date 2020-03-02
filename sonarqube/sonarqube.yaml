@@ -28,5 +28,5 @@ spec:
             type: DirectoryOrCreate    
         - name: sonarplugins
           hostPath:
-            path: /Users/matthouse/docker/volumes/sonar4kubessonarqube_plugins
+            path: /Users/matthouse/docker/volumes/sonar4kubes/sonarqube_plugins
             type: DirectoryOrCreate
