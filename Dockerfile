@@ -11,8 +11,8 @@ RUN mvn package
 #RUN mvn -f /home/app/pom.xml clean install
 RUN mvn -f /home/app/ sonar:sonar \
  -Dsonar.projectKey=claimno-service \
- -Dsonar.host.url=http://10.105.189.117:9442 \ 
- -Dsonar.login=084e51d5120719dc236b3af4e30b3f7de04b2a8d
+ -Dsonar.host.url=http://10.111.225.199:9442 \ 
+ -Dsonar.login=434578886f7c91dadf49ded2d99ab271157d888a
 
 #
 # Package stage
